@@ -72,6 +72,7 @@
   .title { font-weight: 500; }
   .dim, .price { color: var(--muted); font-variant-numeric: tabular-nums; }
   .price { color: var(--fg); }
+  .status { color: var(--muted); }
 
   .more { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--line); }
   .more h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; text-align: center; margin: 0 0 32px; }
@@ -165,7 +166,7 @@
     { name: "Balalaikaorkester", price: 5000, h: 71, w: 41, src: "img/balalaikaorkester.jpg" },
     { name: "Lunsj 1",           price: 2500, h: 33, w: 36, src: "img/lunsj-1.jpg" },
     { name: "Lunsj 2",           price: 2500, h: 33, w: 36, src: "img/lunsj-2.jpg" },
-    { name: "Solsnu 1",          price: 2100, h: 38, w: 37, src: "img/solsnu-1.jpg" },
+    { name: "Solsnu 1",          price: 2100, h: 38, w: 37, src: "img/solsnu-1.jpg", available: false },
     { name: "Solsnu 2",          price: 2100, h: 38, w: 37, src: "img/solsnu-2.jpg" }
   ];
 
@@ -185,7 +186,9 @@
     return '<span class="title">' + esc(wk.name) + '</span>' +
       '<span class="dim">' + (wk.medium || "Mixed media") + '</span>' +
       '<span class="dim">' + wk.h + ' x ' + wk.w + ' cm</span>' +
-      '<span class="price">' + kr(wk.price) + '</span>';
+      (wk.available === false
+        ? '<span class="status">Ikke tilgjengelig</span>'
+        : '<span class="price">' + kr(wk.price) + '</span>');
   }
 
   function render(items, list) {
