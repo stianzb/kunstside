@@ -190,7 +190,7 @@
       (wk.available === false
         ? '<span class="status">Ikke tilgjengelig</span>'
         : '<span class="price">' + kr(wk.price) +
-            (wk.frame ? ' <span class="note">(inkl. ramme)</span>' : '') + '</span>');
+            ' <span class="note">(' + (wk.frame ? 'inkl.' : 'eks.') + ' ramme)</span>' + '</span>');
   }
 
   function render(items, list) {
