@@ -73,6 +73,7 @@
   .dim, .price { color: var(--muted); font-variant-numeric: tabular-nums; }
   .price { color: var(--fg); }
   .status { color: var(--muted); }
+  .note { color: var(--muted); white-space: nowrap; }
 
   .more { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--line); }
   .more h2 { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; text-align: center; margin: 0 0 32px; }
@@ -172,10 +173,10 @@
 
   // Andre tilgjengelige verk
   const others = [
-    { name: "Den standhaftige tinnsoldat", price: 7500, h: 65, w: 45, src: "img/tinnsoldat.jpg" },
-    { name: "Når Sceneteppet går opp",     price: 7500, h: 90, w: 50, src: "img/sceneteppet.jpg" },
-    { name: "Maslows stigespill",          price: 7500, h: 60, w: 45, src: "img/maslow.jpg" },
-    { name: "Vennligst, ta av deg hodet",  price: 7500, h: 85, w: 60, src: "img/hodet.jpg" }
+    { name: "Den standhaftige tinnsoldat", price: 7500, h: 65, w: 45, src: "img/tinnsoldat.jpg",  frame: true },
+    { name: "Når Sceneteppet går opp",     price: 7500, h: 90, w: 50, src: "img/sceneteppet.jpg", frame: true },
+    { name: "Maslows stigespill",          price: 7500, h: 60, w: 45, src: "img/maslow.jpg",      frame: true },
+    { name: "Vennligst, ta av deg hodet",  price: 7500, h: 85, w: 60, src: "img/hodet.jpg",       frame: true }
   ];
 
   const all = works.concat(others);
@@ -188,7 +189,8 @@
       '<span class="dim">' + wk.h + ' x ' + wk.w + ' cm</span>' +
       (wk.available === false
         ? '<span class="status">Ikke tilgjengelig</span>'
-        : '<span class="price">' + kr(wk.price) + '</span>');
+        : '<span class="price">' + kr(wk.price) +
+            (wk.frame ? ' <span class="note">(inkl. ramme)</span>' : '') + '</span>');
   }
 
   function render(items, list) {
