@@ -35,6 +35,8 @@
   header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; margin-bottom: 40px; }
   .artist { font-size: 13px; color: var(--muted); letter-spacing: 0.01em; margin: 0; }
   h1 { font-size: 30px; font-weight: 500; letter-spacing: -0.02em; margin: 0; line-height: 1.1; }
+  .intro { font-size: 14px; color: var(--muted); max-width: 44ch; margin: 10px 0 0; text-wrap: balance; }
+  .nw { white-space: nowrap; }
 
   .grid {
     list-style: none; margin: 0; padding: 0;
@@ -132,6 +134,7 @@
   <header>
     <p class="artist">Stian Zimmermann</p>
     <h1>Verksliste</h1>
+    <p class="intro">Alle priser er inkludert kunstavgift på&nbsp;5&nbsp;%. Innramming koster typisk <span class="nw">500–1&nbsp;000&nbsp;kr</span>, avhengig av størrelse.</p>
   </header>
 
   <ul class="grid" id="list"></ul>
